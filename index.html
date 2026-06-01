@@ -76,7 +76,7 @@
         /* --- SỬA CHỖ NÀY: HIỆU ỨNG CHẠY HOẠT HÌNH PIXEL (SPRITE SHEET) --- */
         @keyframes pixelRun {
             from { background-position: 0 0; }
-            to { background-position: -1024px 0; } /* 128px * 8 khung hình = 1024px */
+            to { background-position: -768px 0; } /* 128px * 8 khung hình = 1024px */
         }
 
        .chibi-avatar {
@@ -86,11 +86,11 @@
     background-repeat: no-repeat;
     
     /* 1. SỬA DÒNG NÀY: Ép ảnh nền về đúng tỉ lệ chuẩn của 8 khung hình */
-    background-size: 1180px 128px; 
+    background-size: 768px 128px; 
     
 
     
-    animation: pixelRun 1.5s steps(6) infinite;
+    animation: pixelRun 1.s steps(6) infinite;
     filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15));
     image-rendering: pixelated; 
 }
