@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Lớp Học 10A9 - Học Toán Chill</title>
+    <title>Trang dành cho học sinh lớp 12 của thầy Phát</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -55,14 +55,13 @@
             98% { left: -150px; transform: scaleX(-1); }
             100% { left: -150px; transform: scaleX(1); } 
         }
-        @keyframes pixelBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+        
         @keyframes popBubble {
             0%, 100% { transform: scale(0.95); opacity: 0.9; }
             50% { transform: scale(1.05); opacity: 1; }
         }
+
+        /* Container chứa cả chữ và nhân vật chạy qua lại */
         .chibi-container {
             position: fixed;
             bottom: 20px;
@@ -73,11 +72,28 @@
             flex-direction: column;
             align-items: center;
         }
-        .chibi-avatar {
-            width: 90px; 
-            filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15));
-            animation: pixelBounce 0.35s ease-in-out infinite;
+
+        /* --- SỬA CHỖ NÀY: HIỆU ỨNG CHẠY HOẠT HÌNH PIXEL (SPRITE SHEET) --- */
+        @keyframes pixelRun {
+            from { background-position: 0 0; }
+            to { background-position: -1024px 0; } /* 128px * 8 khung hình = 1024px */
         }
+
+        .chibi-avatar {
+            width: 128px; 
+            height: 128px;
+            /* Đưa ảnh 8 tư thế chạy liên tục vào đây */
+            background-image: url('http://googleusercontent.com/image_generation_content/175');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            
+            /* Thực hiện lặp 8 khung hình trong 0.6 giây */
+            animation: pixelRun 0.6s steps(8) infinite;
+            
+            filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15));
+            image-rendering: pixelated; /* Giữ nét pixel art không bị nhòe */
+        }
+
         .math-bubble {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(4px);
