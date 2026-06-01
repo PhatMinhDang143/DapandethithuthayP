@@ -79,20 +79,22 @@
             to { background-position: -1024px 0; } /* 128px * 8 khung hình = 1024px */
         }
 
-        .chibi-avatar {
-            width: 128px; 
-            height: 128px;
-            /* Đưa ảnh 8 tư thế chạy liên tục vào đây */
-          background-image: url('chibi-run.png');
-            background-repeat: no-repeat;
-            background-size: auto 100%;
-            
-            /* Thực hiện lặp 8 khung hình trong 0.6 giây */
-            animation: pixelRun 0.6s steps(8) infinite;
-            
-            filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15));
-            image-rendering: pixelated; /* Giữ nét pixel art không bị nhòe */
-        }
+       .chibi-avatar {
+    width: 128px; 
+    height: 128px;
+    background-image: url('chibi-run.png');
+    background-repeat: no-repeat;
+    
+    /* 1. SỬA DÒNG NÀY: Ép ảnh nền về đúng tỉ lệ chuẩn của 8 khung hình */
+    background-size: 1024px 128px; 
+    
+    /* 2. THÊM DÒNG NÀY ĐỂ KIỂM TRA (DEBUG): Nếu ảnh lỗi, bạn sẽ thấy ô màu đỏ chạy qua lại */
+    background-color: rgba(255, 0, 0, 0.2); 
+    
+    animation: pixelRun 0.6s steps(8) infinite;
+    filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.15));
+    image-rendering: pixelated; 
+}
 
         .math-bubble {
             background: rgba(255, 255, 255, 0.9);
